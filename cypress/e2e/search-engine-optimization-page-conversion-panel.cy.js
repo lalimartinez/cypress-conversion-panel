@@ -83,7 +83,7 @@ describe('Conversion Panel', () => {
     })
 
     context('Tablet font size is correct', () => {
-        before(() => {
+        beforeEach(() => {
             cy.viewport(991, 800)
         })
 
@@ -101,7 +101,7 @@ describe('Conversion Panel', () => {
     })
 
     context('Mobile font size is correct', () => {
-        before(() => {
+        beforeEach(() => {
             cy.viewport(375, 700)
         })
 
