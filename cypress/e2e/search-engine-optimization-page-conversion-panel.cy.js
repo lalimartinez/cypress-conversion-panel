@@ -61,6 +61,42 @@ describe('Conversion Panel', () => {
       })
   })
 
+  context('Tablet font size is correct', () => {
+    before(() => {
+        cy.viewport(991, 800)
+    })
+
+    it('h2 heading font size is correct on a tablet', () => {
+        cy.get('.eCNBlG').should('have.css', 'font-size', '28.1296px')
+    })
+
+    it('the p text font size is correct on a tablet', () => {
+        cy.get('.iBCfmO').eq(32).should('have.css', 'font-size', '22.496px')
+    })
+
+    it('button font size is correct on a tablet', () => {
+        cy.getByInternalName('Schedule a call Button Component').should('have.css', 'font-size', '18px')
+    })
+})
+
+context('Mobile font size is correct', () => {
+    before(() => {
+        cy.viewport(375, 700)
+    })
+
+    it('h2 heading font size is correct on a mobile', () => {
+        cy.get('.eCNBlG').should('have.css', 'font-size', '22.496px')
+    })
+
+    it('the p text font size is correct on a mobile', () => {
+        cy.get('.iBCfmO').eq(32).should('have.css', 'font-size', '22.496px')
+    })
+
+    it('button font size is correct on a mobile', () => {
+        cy.getByInternalName('Schedule a call Button Component').should('have.css', 'font-size', '18px')
+    })
+})
+
   it('clicks schedule a call button', () => {
       cy.getByInternalName('Schedule a call Button Component').click()
       cy.location('pathname').should('eq', '/sales')
